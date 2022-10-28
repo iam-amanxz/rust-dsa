@@ -94,10 +94,8 @@ mod queue {
             queue.enqueue(3);
             queue.enqueue(4);
             queue.enqueue(5);
-            queue.print();
             queue.dequeue();
-            queue.dequeue();
-            queue.print();
+            queue.dequeue();            queue.print();
             assert_eq!(queue.get_queue(), vec![3, 4, 5]);
         }
 

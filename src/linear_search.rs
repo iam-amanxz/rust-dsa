@@ -13,6 +13,10 @@
 #[allow(dead_code)]
 mod linear_search {
     fn search(array: &[i32], item: i32) -> isize {
+        if array.is_empty() {
+            return -1 as isize;
+        }
+
         for (index, el) in array.iter().enumerate() {
             if *el == item {
                 return index as isize;
@@ -32,6 +36,7 @@ mod linear_search {
             assert_eq!(search(&array, 110), 6);
         }
 
+        #[test]
         fn should_return_minus_one() {
             let array = [10, 20, 80, 30, 60, 50, 110, 100, 130, 170];
             assert_eq!(search(&array, -20), -1);

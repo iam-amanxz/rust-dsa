@@ -25,7 +25,7 @@ mod binary_search {
         -1 as isize
     }
 
-    fn search_helper(array: &[i32], target: i32, left_index: usize, right_index: usize) -> isize {
+    fn search_recursive_helper(array: &[i32], target: i32, left_index: usize, right_index: usize) -> isize {
         if left_index > right_index {
             return -1 as isize;
         }
@@ -37,14 +37,14 @@ mod binary_search {
         }
 
         if target < array[mid_index] {
-            return search_helper(array, target, left_index, mid_index - 1);
+            return search_recursive_helper(array, target, left_index, mid_index - 1);
         }
 
-        search_helper(array, target, mid_index + 1, right_index)
+        search_recursive_helper(array, target, mid_index + 1, right_index)
     }
 
     fn search_recursive(array: &[i32], target: i32) -> isize {
-        search_helper(&array, target, 0 as usize, array.len() - 1)
+        search_recursive_helper(&array, target, 0 as usize, array.len() - 1)
     }
 
     #[cfg(test)]
